@@ -1,0 +1,22 @@
+//
+//  TextViewPlus.xcconfig
+//  TextViewPlus
+//
+//  Created by Matt Massicotte on 2020-01-03.
+//  Copyright © 2020 ChimeHq. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+PRODUCT_NAME = TextViewPlus
+PRODUCT_BUNDLE_IDENTIFIER = com.chimehq.TextViewPlus
+PRODUCT_MODULE_NAME = TextViewPlus
+CURRENT_PROJECT_VERSION = 1
+MARKETING_VERSION = 0.1
+
+INFOPLIST_FILE = TextViewPlus/Info.plist
+FRAMEWORK_SEARCH_PATHS = $(PROJECT_DIR)/Carthage/Build/Mac $(PROJECT_DIR)/Carthage/Build/Mac/Static
+MACH_O_TYPE = staticlib
+
+MACOSX_DEPLOYMENT_TARGET = 10.12

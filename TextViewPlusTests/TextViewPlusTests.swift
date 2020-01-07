@@ -22,4 +22,30 @@ class TextViewPlusTests: XCTestCase {
 
         XCTAssertEqual(textView.string, "abc")
     }
+
+    func testProgrammaticModificationOfAttributedStringWithZeroLengthRange() {
+        let textView = TestableTextView(string: "abc")
+
+        let attrString = NSAttributedString(string: "z")
+        textView.replaceString(in: NSRange(location: 1, length: 0), with: attrString)
+
+        XCTAssertEqual(textView.string, "azbc")
+
+        textView.undoManager!.undo()
+
+        XCTAssertEqual(textView.string, "abc")
+    }
+
+    func testProgrammaticModificationOfAttributedStringWithFullRange() {
+        let textView = TestableTextView(string: "abc")
+
+        let attrString = NSAttributedString(string: "def")
+        textView.replaceString(in: NSRange(location: 0, length: 3), with: attrString)
+
+        XCTAssertEqual(textView.string, "def")
+
+        textView.undoManager!.undo()
+
+        XCTAssertEqual(textView.string, "abc")
+    }
 }

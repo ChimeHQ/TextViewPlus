@@ -33,4 +33,23 @@ extension NSTextView {
 
         textStorage?.endEditing()
     }
+
+    public var wrapsTextToHorizontalBounds: Bool {
+        get {
+            return textContainer?.widthTracksTextView ?? false
+        }
+        set {
+            guard let scrollView = enclosingScrollView else {
+                return
+            }
+
+            let max = CGFloat.greatestFiniteMagnitude
+            let width = newValue ? scrollView.contentSize.width : max
+            let size = NSSize(width: width, height: max)
+
+            textContainer?.containerSize = size
+            textContainer?.widthTracksTextView = newValue
+            isHorizontallyResizable = newValue == false
+        }
+    }
 }

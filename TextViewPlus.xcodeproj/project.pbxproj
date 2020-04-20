@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C96AF30F244E1872004EB905 /* NSTextView+Workarounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AF30E244E1872004EB905 /* NSTextView+Workarounds.swift */; };
 		C9C7D7CD23BF6CCD00282686 /* TextViewPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C7D7C323BF6CCC00282686 /* TextViewPlus.framework */; };
 		C9C7D7D223BF6CCD00282686 /* TextViewPlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D7D123BF6CCD00282686 /* TextViewPlusTests.swift */; };
 		C9C7D7D423BF6CCD00282686 /* TextViewPlus.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7D7C623BF6CCC00282686 /* TextViewPlus.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C96AF30E244E1872004EB905 /* NSTextView+Workarounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextView+Workarounds.swift"; sourceTree = "<group>"; };
 		C9C7D7C323BF6CCC00282686 /* TextViewPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TextViewPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C7D7C623BF6CCC00282686 /* TextViewPlus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextViewPlus.h; sourceTree = "<group>"; };
 		C9C7D7C723BF6CCC00282686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				C9C7D7E523BF6D8C00282686 /* NSTextView+Bounding.swift */,
 				C9C7D7E823BF6F6900282686 /* NSTextView+AttributedString.swift */,
 				C9C7D7E723BF6E8400282686 /* TextViewPlus.xcconfig */,
+				C96AF30E244E1872004EB905 /* NSTextView+Workarounds.swift */,
 			);
 			path = TextViewPlus;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C96AF30F244E1872004EB905 /* NSTextView+Workarounds.swift in Sources */,
 				C9C7D7E223BF6D3800282686 /* NSTextView+Ranges.swift in Sources */,
 				C9C7D7E323BF6D3800282686 /* NSTextView+Selection.swift in Sources */,
 				C9C7D7E623BF6D8C00282686 /* NSTextView+Bounding.swift in Sources */,

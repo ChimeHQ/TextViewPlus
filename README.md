@@ -81,6 +81,21 @@ func replaceCharacters(in range: NSRange, with attributedString: NSAttributedStr
 func replaceString(in range: NSRange, with attributedString: NSAttributedString)
 ```
 
+**Behavior**
+
+Changing NSTextView behaviors can be tricky, and often involve complex interactions with the whole system (NSLayoutManager, NSTextContainer, NSScrollView, etc).
+
+```swift
+public var wrapsTextToHorizontalBounds: Bool
+```
+
+**Workarounds**
+
+```swift
+// Fixes a widely-seen selection drawing artifact
+func applySelectionDrawingWorkaround()
+```
+
 ### Suggestions or Feedback
 
 We'd love to hear from you! Get in touch via [twitter](https://twitter.com/chimehq), an issue, or a pull request.

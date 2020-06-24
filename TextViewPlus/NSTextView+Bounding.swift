@@ -40,15 +40,33 @@ public extension NSTextView {
             return []
         }
 
+        let origin = textContainerOrigin
+
         var rects: [NSRect] = []
 
         let glyphRange = layoutManager.glyphRange(forCharacterRange: range, actualCharacterRange: nil)
 
         // swiftlint:disable line_length
         layoutManager.enumerateEnclosingRects(forGlyphRange: glyphRange, withinSelectedGlyphRange: glyphRange, in: textContainer) { (rect, stop) in
-            rects.append(rect)
+            let offsetRect = rect.offsetBy(dx: origin.x, dy: origin.y)
+
+            rects.append(offsetRect)
         }
+        // swiftlint:enable line_length
 
         return rects
+    }
+
+    func enclosingLineRect(forCharacterIndex location: Int) -> NSRect? {
+        guard let layoutManager = layoutManager, let container = textContainer else {
+            return nil
+        }
+
+        let origin = self.textContainerOrigin
+        let enclosingRect = layoutManager.enclosingRect(forCharacterIndex: location, in: container)
+        let offsetRect = enclosingRect.offsetBy(dx: origin.x, dy: origin.y)
+        let fullWidthRect = NSRect(x: 0.0, y: offsetRect.minY, width: self.bounds.width, height: offsetRect.height)
+
+        return fullWidthRect
     }
 }

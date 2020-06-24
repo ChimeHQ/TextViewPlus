@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C908A15A24635F0600ADE4D9 /* NSTextView+Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = C908A15924635F0600ADE4D9 /* NSTextView+Behavior.swift */; };
 		C96AF30F244E1872004EB905 /* NSTextView+Workarounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AF30E244E1872004EB905 /* NSTextView+Workarounds.swift */; };
+		C97F454924805A2A00DEFD98 /* NSLayoutManager+Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97F454824805A2A00DEFD98 /* NSLayoutManager+Geometry.swift */; };
 		C9C7D7CD23BF6CCD00282686 /* TextViewPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C7D7C323BF6CCC00282686 /* TextViewPlus.framework */; };
 		C9C7D7D223BF6CCD00282686 /* TextViewPlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D7D123BF6CCD00282686 /* TextViewPlusTests.swift */; };
 		C9C7D7D423BF6CCD00282686 /* TextViewPlus.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7D7C623BF6CCC00282686 /* TextViewPlus.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		C908A15924635F0600ADE4D9 /* NSTextView+Behavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextView+Behavior.swift"; sourceTree = "<group>"; };
 		C96AF30E244E1872004EB905 /* NSTextView+Workarounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextView+Workarounds.swift"; sourceTree = "<group>"; };
+		C97F454824805A2A00DEFD98 /* NSLayoutManager+Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutManager+Geometry.swift"; sourceTree = "<group>"; };
 		C9C7D7C323BF6CCC00282686 /* TextViewPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TextViewPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C7D7C623BF6CCC00282686 /* TextViewPlus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextViewPlus.h; sourceTree = "<group>"; };
 		C9C7D7C723BF6CCC00282686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				C9C7D7E723BF6E8400282686 /* TextViewPlus.xcconfig */,
 				C96AF30E244E1872004EB905 /* NSTextView+Workarounds.swift */,
 				C908A15924635F0600ADE4D9 /* NSTextView+Behavior.swift */,
+				C97F454824805A2A00DEFD98 /* NSLayoutManager+Geometry.swift */,
 			);
 			path = TextViewPlus;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				C9C7D7E423BF6D3800282686 /* NSTextView+Style.swift in Sources */,
 				C9C7D7E123BF6D3800282686 /* NSTextView+Geometry.swift in Sources */,
 				C9C7D7E923BF6F6A00282686 /* NSTextView+AttributedString.swift in Sources */,
+				C97F454924805A2A00DEFD98 /* NSLayoutManager+Geometry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

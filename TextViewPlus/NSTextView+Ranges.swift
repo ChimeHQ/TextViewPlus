@@ -9,8 +9,8 @@
 import Foundation
 import class AppKit.NSTextView
 
-public extension NSTextView {
-    func textRange(for rect: NSRect) -> NSRange {
+extension NSTextView {
+    public func textRange(for rect: NSRect) -> NSRange {
         let length = self.textStorage?.length ?? 0
 
         guard let layoutManager = self.layoutManager else {
@@ -29,7 +29,7 @@ public extension NSTextView {
         return layoutManager.characterRange(forGlyphRange: glyphRange, actualGlyphRange: nil)
     }
 
-    var visibleTextRange: NSRange {
+    @objc open var visibleTextRange: NSRange {
         return textRange(for: visibleRect)
     }
 }

@@ -49,3 +49,17 @@ class TextViewPlusTests: XCTestCase {
         XCTAssertEqual(textView.string, "abc")
     }
 }
+
+extension TextViewPlusTests {
+    func testSelectionRanges() {
+        let textView = TestableTextView(string: "abc")
+
+        XCTAssertEqual(textView.selectedRanges, [NSValue(range: NSRange(3..<3))])
+        XCTAssertEqual(textView.selectedTextRanges, [NSRange(3..<3)])
+
+        textView.selectedTextRanges = [NSRange(0..<0)]
+
+        XCTAssertEqual(textView.selectedRanges, [NSValue(range: NSRange(0..<0))])
+        XCTAssertEqual(textView.selectedTextRanges, [NSRange(0..<0)])
+    }
+}

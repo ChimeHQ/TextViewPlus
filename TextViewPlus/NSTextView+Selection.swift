@@ -10,6 +10,7 @@ import Foundation
 import class AppKit.NSTextView
 
 extension NSTextView {
+    /// All the selected ranges, as NSRange instances
     public var selectedTextRanges: [NSRange] {
         get {
             return selectedRanges.map({ $0.rangeValue })
@@ -19,6 +20,9 @@ extension NSTextView {
         }
     }
 
+    /// A single range representing a single, continuous selection
+    ///
+    /// This method returns nil if there isn't exactly one selection range.
     public var selectedContinuousRange: NSRange? {
         let ranges = selectedTextRanges
         if ranges.count != 1 {
@@ -28,6 +32,10 @@ extension NSTextView {
         return ranges.first!
     }
 
+    /// A singlel location representing a single, zero-length selection
+    ///
+    /// This method returns nil if there is more than one selected range,
+    /// or if that range has a non-zero length.
     public var insertionLocation: Int? {
         guard let range = selectedContinuousRange else {
             return nil

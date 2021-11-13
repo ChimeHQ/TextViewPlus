@@ -14,5 +14,7 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v1
-      - name: xcodebuild test
-        run: set -o pipefail && xcodebuild test -scheme TextViewPlus -destination "platform=macOS" | xcpretty
+      - name: swift test
+        run: swift test
+      - name: carthage
+        run: carthage build --no-skip-current

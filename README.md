@@ -1,10 +1,9 @@
 [![Github CI](https://github.com/ChimeHQ/TextViewPlus/workflows/CI/badge.svg)](https://github.com/ChimeHQ/TextViewPlus/actions)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
-![](https://img.shields.io/badge/Swift-5.0-orange.svg)
 
 # TextViewPlus
 
-TextViewPlus is a collection of utilities for making it easier to work with NSTextView.
+TextViewPlus is a collection of utilities for making it easier to work with `NSTextView`.
 
 ## Integration
 
@@ -26,7 +25,7 @@ github "ChimeHQ/TextViewPlus"
 
 **Geometry**
 
-Wrappers around the underlying NSLayoutManager, but with a much more convenient API.
+Wrappers around the underlying `NSLayoutManager`, but with a much more convenient API.
 
 ```swift
 func enumerateLineFragments(for range: NSRange, block: (NSRect, NSRange) -> Void)
@@ -72,7 +71,7 @@ func boundingSelectionRects(forRange range: NSRange) -> [NSRect]
 
 **Attributed Strings**
 
-Programmtic modification of the underlying attributed string in the NSTextStorage, with support for delegate callbacks and undo.
+Programmtic modification of the underlying attributed string in the `NSTextStorage`, with support for delegate callbacks and undo.
 
 ```swift
 func replaceCharacters(in range: NSRange, with attributedString: NSAttributedString)
@@ -83,7 +82,7 @@ func replaceString(in range: NSRange, with attributedString: NSAttributedString)
 
 **Behavior**
 
-Changing NSTextView behaviors can be tricky, and often involve complex interactions with the whole system (NSLayoutManager, NSTextContainer, NSScrollView, etc).
+Changing `NSTextView` behaviors can be tricky, and often involve complex interactions with the whole system (`NSLayoutManager`, `NSTextContainer`, `NSScrollView`, etc).
 
 ```swift
 public var wrapsTextToHorizontalBounds: Bool

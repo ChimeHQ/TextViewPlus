@@ -62,4 +62,24 @@ extension TextViewPlusTests {
         XCTAssertEqual(textView.selectedRanges, [NSValue(range: NSRange(0..<0))])
         XCTAssertEqual(textView.selectedTextRanges, [NSRange(0..<0)])
     }
+
+    func testContinuousSelectionRanges() {
+        let textView = TestableTextView(string: "abc")
+
+        XCTAssertEqual(textView.selectedContinuousRange, NSRange(3..<3))
+
+        textView.selectedTextRanges = [NSRange(0..<1), NSRange(2..<3)]
+
+        XCTAssertNil(textView.selectedContinuousRange)
+    }
+
+    func testInsertionLocation() {
+        let textView = TestableTextView(string: "abc")
+
+        XCTAssertEqual(textView.insertionLocation, 3)
+
+        textView.selectedTextRanges = [NSRange(0..<1)]
+
+        XCTAssertNil(textView.insertionLocation)
+    }
 }

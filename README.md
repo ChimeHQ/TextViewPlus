@@ -1,9 +1,8 @@
 [![Github CI](https://github.com/ChimeHQ/TextViewPlus/workflows/CI/badge.svg)](https://github.com/ChimeHQ/TextViewPlus/actions)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
 
 # TextViewPlus
 
-TextViewPlus is a collection of utilities for making it easier to work with `NSTextView`.
+TextViewPlus is a collection of utilities for making it easier to work with `NSTextView` and the text system.
 
 ## Integration
 
@@ -11,14 +10,8 @@ Swift Package Manager:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/ChimeHQ/TextViewPlus.git")
+    .package(url: "https://github.com/ChimeHQ/TextViewPlus")
 ]
-```
-
-Carthage:
-
-```
-github "ChimeHQ/TextViewPlus"
 ```
 
 ## Extensions
@@ -93,6 +86,23 @@ public var wrapsTextToHorizontalBounds: Bool
 ```swift
 // Fixes a widely-seen selection drawing artifact
 func applySelectionDrawingWorkaround()
+```
+
+As of macOS 12.2, TextKit 2 doesn't correctly apply rendering attributes. You can sub in this `NSTextLayoutFragment` to workaround the issue.
+
+```swift
+extension YourClass: NSTextLayoutManagerDelegate {
+    func textLayoutManager(_ textLayoutManager: NSTextLayoutManager, textLayoutFragmentFor location: NSTextLocation, in textElement: NSTextElement) -> NSTextLayoutFragment {
+        let range = textElement.elementRange
+
+        switch textElement {
+        case let paragraph as NSTextParagraph:
+            return ParagraphRenderingAttributeTextLayoutFragment(textParagraph: paragraph, range: range)
+        default:
+            return NSTextLayoutFragment(textElement: textElement, range: range)
+        }
+    }
+}
 ```
 
 ### Suggestions or Feedback

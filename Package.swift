@@ -8,9 +8,11 @@ let package = Package(
     products: [
         .library(name: "TextViewPlus", targets: ["TextViewPlus"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/ChimeHQ/Rearrange", from: "1.4.0"),
+    ],
     targets: [
-        .target(name: "TextViewPlus", dependencies: [], path: "TextViewPlus/"),
-        .testTarget(name: "TextViewPlusTests", dependencies: ["TextViewPlus"], path: "TextViewPlusTests/"),
+        .target(name: "TextViewPlus", dependencies: ["Rearrange"]),
+        .testTarget(name: "TextViewPlusTests", dependencies: ["TextViewPlus"]),
     ]
 )

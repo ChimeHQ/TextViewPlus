@@ -88,7 +88,7 @@ public var wrapsTextToHorizontalBounds: Bool
 func applySelectionDrawingWorkaround()
 ```
 
-As of macOS 12.2, TextKit 2 doesn't correctly apply rendering attributes. You can sub in this `NSTextLayoutFragment` to workaround the issue.
+In versions of macOS before 13, TextKit 2 doesn't correctly apply rendering attributes. You can sub in this `NSTextLayoutFragment` to workaround the issue.
 
 ```swift
 extension YourClass: NSTextLayoutManagerDelegate {

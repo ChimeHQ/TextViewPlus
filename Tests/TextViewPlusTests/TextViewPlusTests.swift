@@ -1,15 +1,8 @@
-//
-//  TextViewPlusTests.swift
-//  TextViewPlusTests
-//
-//  Created by Matt Massicotte on 2020-01-03.
-//  Copyright © 2020 ChimeHq. All rights reserved.
-//
-
 import XCTest
 @testable import TextViewPlus
 
-class TextViewPlusTests: XCTestCase {
+@MainActor
+final class TextViewPlusTests: XCTestCase {
     func testProgrammaticModificationOfAttributedString() {
         let textView = TestableTextView(string: "abc")
 

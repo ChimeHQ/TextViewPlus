@@ -1,13 +1,4 @@
-//
-//  TestableTextView.swift
-//  TextViewPlusTests
-//
-//  Created by Matt Massicotte on 2020-01-03.
-//  Copyright © 2020 ChimeHq. All rights reserved.
-//
-
-import Foundation
-import class AppKit.NSTextView
+import AppKit
 
 class TestableTextView: NSTextView {
     var settableUndoManager = UndoManager()

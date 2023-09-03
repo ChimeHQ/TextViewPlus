@@ -1,18 +1,22 @@
-// swift-tools-version:5.0
+// swift-tools-version: 5.8
 
 import PackageDescription
 
+let settings: [SwiftSetting] = [
+	.enableExperimentalFeature("StrictConcurrency")
+]
+
 let package = Package(
-    name: "TextViewPlus",
-    platforms: [.macOS(.v10_12)],
-    products: [
-        .library(name: "TextViewPlus", targets: ["TextViewPlus"]),
-    ],
-    dependencies: [
-        .package(url: "https://github.com/ChimeHQ/Rearrange", from: "1.4.0"),
-    ],
-    targets: [
-        .target(name: "TextViewPlus", dependencies: ["Rearrange"]),
-        .testTarget(name: "TextViewPlusTests", dependencies: ["TextViewPlus"]),
-    ]
+	name: "TextViewPlus",
+	platforms: [.macOS(.v10_13)],
+	products: [
+		.library(name: "TextViewPlus", targets: ["TextViewPlus"]),
+	],
+	dependencies: [
+		.package(url: "https://github.com/ChimeHQ/Rearrange", from: "1.4.0"),
+	],
+	targets: [
+		.target(name: "TextViewPlus", dependencies: ["Rearrange"], swiftSettings: settings),
+		.testTarget(name: "TextViewPlusTests", dependencies: ["TextViewPlus"], swiftSettings: settings),
+	]
 )

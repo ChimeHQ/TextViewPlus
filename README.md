@@ -1,12 +1,10 @@
-[![Github CI](https://github.com/ChimeHQ/TextViewPlus/workflows/CI/badge.svg)](https://github.com/ChimeHQ/TextViewPlus/actions)
+[![Build Status][build status badge]][build status]
+[![Platforms][platforms badge]][platforms]
 
 # TextViewPlus
-
 TextViewPlus is a collection of utilities for making it easier to work with `NSTextView` and the text system.
 
 ## Integration
-
-Swift Package Manager:
 
 ```swift
 dependencies: [
@@ -105,8 +103,17 @@ extension YourClass: NSTextLayoutManagerDelegate {
 }
 ```
 
-### Suggestions or Feedback
+## Contributing and Collaboration
 
-We'd love to hear from you! Get in touch via an issue or pull request.
+I'd love to hear from you! Get in touch via an issue or pull request.
 
-Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+I prefer collaboration, and would love to find ways to work together if you have a similar project.
+
+I prefer indentation with tabs for improved accessibility. But, I'd rather you use the system you want and make a PR than hesitate because of whitespace.
+
+By participating in this project you agree to abide by the [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+
+[build status]: https://github.com/ChimeHQ/TextViewPlus/actions
+[build status badge]: https://github.com/ChimeHQ/TextViewPlus/workflows/CI/badge.svg
+[platforms]: https://swiftpackageindex.com/ChimeHQ/TextViewPlus
+[platforms badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FChimeHQ%2FTextViewPlus%2Fbadge%3Ftype%3Dplatforms

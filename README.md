@@ -54,7 +54,7 @@ func boundingSelectionRects(forRange range: NSRange) -> [NSRect]
 
 ### Attributed Strings
 
-Programmtic modification of the underlying attributed string in the `NSTextStorage`, with support for delegate callbacks and undo.
+Programmatic modification of the underlying attributed string in the `NSTextStorage`, with support for delegate callbacks and undo.
 
 ```swift
 func replaceCharacters(in range: NSRange, with attributedString: NSAttributedString)

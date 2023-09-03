@@ -10,8 +10,28 @@ This project aims to make it easier to use `NSTextView`. It was originally built
 ```swift
 dependencies: [
     .package(url: "https://github.com/ChimeHQ/TextViewPlus")
+],
+targets: [
+    .target(
+        name: "UseCoreFunctionality",
+        dependencies: [.product(name: "TextViewPlus", package: "TextViewPlus")]
+    ),
+    .target(
+        name: "UseBaseTextView",
+        dependencies: [.product(name: "BaseTextView", package: "TextViewPlus")]
+    ),
 ]
 ```
+
+## BaseTextView
+
+This is an `NSTextView` subclass that aims for an absolute minimal amount of changes. Things are allowed only if they are required for correct functionality. It is intended to be a drop-in replacement for `NSTextView`, and should maintain compatibilty with existing subclasses. Behaviors are appropriate for all types of text.
+
+- Workaround for `scrollRangeToVisible` bug (FB13100459)
+- Minimum `textContainerInset` enforcement to address more `scrollRangeToVisible` bugs
+- Additional routing to `NSTextViewDelegate.textView(_:, doCommandBy:) -> Bool`:  `paste`, `pasteAsRichText`, `pasteAsPlainText`
+- Hooks for `onKeyDown`, `onFlagsChanged`, `onMouseDown`
+- Configurable selection notifcation delivery via `continuousSelectionNotifications`
 
 ## NSTextView Extensions
 

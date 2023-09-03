@@ -15,13 +15,14 @@ extension NSTextView {
         return usableWidth - rulerView.requiredThickness
     }
 
-    // swiftlint:disable line_length
     /// Controls the relative sizing behavior of the NSTextView and its NSTextContainer
     ///
-    /// NSTextView scrolling behavior is tricky. Correct configuration of the enclosing
-    /// NSScrollView is required as well. But, this method does the basic setup,
-    /// as well as adjusting frame positions to account for any NSScrollView rulers.
-    ///
+	/// NSTextView size changes/scrolling behavior is tricky. This adjusts:
+	/// - `textContainer.widthTracksTextView`
+	/// - `textContainer?.size`: to allow unlimited height/width growth
+	/// - `maxSize`: to allow unlimited height/width growth
+	/// - `frame`: to account for `NSScrollView` rulers
+	///
     /// Check out: https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/TextUILayer/Tasks/TextInScrollView.html
     public var wrapsTextToHorizontalBounds: Bool {
         get {
@@ -35,8 +36,10 @@ extension NSTextView {
             textContainer?.widthTracksTextView = newValue
 
             let max = CGFloat.greatestFiniteMagnitude
+			let size = NSSize(width: max, height: max)
 
-            textContainer?.size = NSSize(width: max, height: max)
+            textContainer?.size = size
+			maxSize = size
 
             // if we are turning on wrapping, our view could be the wrong size,
             // so need to adjust it. Also, the textContainer's width could have
@@ -49,5 +52,4 @@ extension NSTextView {
             }
         }
     }
-    // swiftlint:enable line_length
 }

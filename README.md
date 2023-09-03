@@ -2,7 +2,8 @@
 [![Platforms][platforms badge]][platforms]
 
 # TextViewPlus
-TextViewPlus is a collection of utilities for making it easier to work with `NSTextView` and the text system.
+
+This project aims to make it easier to use `NSTextView`. It was originally built to support TextKit 1. But, now a major goal is to support TextKit 2.
 
 ## Integration
 
@@ -12,18 +13,9 @@ dependencies: [
 ]
 ```
 
-## Extensions
+## NSTextView Extensions
 
-**Geometry**
-
-Wrappers around the underlying `NSLayoutManager`, but with a much more convenient API.
-
-```swift
-func enumerateLineFragments(for range: NSRange, block: (NSRect, NSRange) -> Void)
-func enumerateLineFragments(for rect: NSRect, block: (NSRect, NSRange) -> Void)
-```
-
-**Ranges**
+### Ranges
 
 Handy methods for computing ranges of text within the view.
 
@@ -32,7 +24,7 @@ func textRange(for rect: NSRect) -> NSRange
 var visibleTextRange: NSRange
 ```
 
-**Selection**
+### Selection
 
 Convenience methods for computing selection ranges/locations.
 
@@ -42,7 +34,7 @@ var selectedContinuousRange: NSRange?
 var insertionLocation: Int?
 ```
 
-**Style**
+### Style
 
 Styling changes can be very expensive, this method is much faster in certain common cases.
 
@@ -50,7 +42,7 @@ Styling changes can be very expensive, this method is much faster in certain com
 func updateFont(_ newFont: NSFont, color newColor: NSColor)
 ```
 
-**Bounding**
+### Bounding
 
 Computing bounding rectangles of displayed text.
 
@@ -60,7 +52,7 @@ func boundingRect(forGlyphRange range: NSRange) -> NSRect?
 func boundingSelectionRects(forRange range: NSRange) -> [NSRect]
 ```
 
-**Attributed Strings**
+### Attributed Strings
 
 Programmtic modification of the underlying attributed string in the `NSTextStorage`, with support for delegate callbacks and undo.
 
@@ -71,7 +63,7 @@ func replaceCharacters(in range: NSRange, with attributedString: NSAttributedStr
 func replaceString(in range: NSRange, with attributedString: NSAttributedString)
 ```
 
-**Behavior**
+### Behavior
 
 Changing `NSTextView` behaviors can be tricky, and often involve complex interactions with the whole system (`NSLayoutManager`, `NSTextContainer`, `NSScrollView`, etc).
 
@@ -79,12 +71,9 @@ Changing `NSTextView` behaviors can be tricky, and often involve complex interac
 public var wrapsTextToHorizontalBounds: Bool
 ```
 
-**Workarounds**
+## TextKit 2 Features
 
-```swift
-// Fixes a widely-seen selection drawing artifact
-func applySelectionDrawingWorkaround()
-```
+### Workarounds
 
 In versions of macOS before 13, TextKit 2 doesn't correctly apply rendering attributes. You can sub in this `NSTextLayoutFragment` to workaround the issue.
 
@@ -101,6 +90,15 @@ extension YourClass: NSTextLayoutManagerDelegate {
         }
     }
 }
+```
+
+## TextKit 1 Features
+
+### `NSLayoutManager` extensions
+
+```swift
+func enumerateLineFragments(for range: NSRange, block: (NSRect, NSRange) -> Void)
+func enumerateLineFragments(for rect: NSRect, block: (NSRect, NSRange) -> Void)
 ```
 
 ## Contributing and Collaboration

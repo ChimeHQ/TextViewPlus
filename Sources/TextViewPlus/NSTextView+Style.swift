@@ -1,19 +1,11 @@
-//
-//  NSTextView+Style.swift
-//  TextViewPlus
-//
-//  Created by Matt Massicotte on 2019-12-19.
-//  Copyright © 2019 Chime Systems. All rights reserved.
-//
-
-import Cocoa
+#if os(macOS)
+import AppKit
 
 extension NSTextView {
+	/// Update `textColor` and `font` properties together.
+	///
+	/// These operations are expensive. The begin/end help reduce the work required, as does skipping the work altogether if unneeded.
     public func updateFont(_ newFont: NSFont, color newColor: NSColor) {
-        // These operations are expensive, the begin/end help reduce
-        // the work required, as does skipping the work altogether if
-        // unneeded
-
         let colorChanged = textColor != newColor
         let fontChanged = font != newFont
 
@@ -34,3 +26,4 @@ extension NSTextView {
         textStorage?.endEditing()
     }
 }
+#endif

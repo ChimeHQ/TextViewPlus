@@ -1,12 +1,4 @@
-//
-//  NSTextView+Behavior.swift
-//  TextViewPlus
-//
-//  Created by Matt Massicotte on 2020-05-06.
-//  Copyright © 2020 Chime Systems Inc. All rights reserved.
-//
-
-import Cocoa
+import AppKit
 
 extension NSTextView {
     private var maximumUsableWidth: CGFloat {

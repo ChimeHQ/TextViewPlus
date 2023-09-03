@@ -1,5 +1,5 @@
 import XCTest
-@testable import TextViewPlus
+import TextViewPlus
 
 @MainActor
 final class TextViewPlusTests: XCTestCase {

@@ -1,12 +1,4 @@
-//
-//  NSTextView+Bounding.swift
-//  TextViewPlus
-//
-//  Created by Matt Massicotte on 2018-10-18.
-//  Copyright © 2018 Chime Systems. All rights reserved.
-//
-
-import Cocoa
+import AppKit
 
 public extension NSTextView {
     func boundingRect(for range: NSRange) -> NSRect? {

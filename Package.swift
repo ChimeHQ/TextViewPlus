@@ -8,7 +8,7 @@ let settings: [SwiftSetting] = [
 
 let package = Package(
 	name: "TextViewPlus",
-	platforms: [.macOS(.v10_13)],
+	platforms: [.macOS(.v10_13), .iOS(.v15), .tvOS(.v15)],
 	products: [
 		.library(name: "TextViewPlus", targets: ["TextViewPlus"]),
 	],

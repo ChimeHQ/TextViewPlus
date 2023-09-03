@@ -1,3 +1,4 @@
+#if canImport(AppKit)
 import AppKit
 
 class TestableTextView: NSTextView {
@@ -13,3 +14,4 @@ class TestableTextView: NSTextView {
         self.string = string
     }
 }
+#endif

@@ -1,4 +1,9 @@
+#if canImport(AppKit)
 import AppKit
+#elseif canImport(UIKit)
+import UIKit
+#endif
+
 import Rearrange
 
 @available(iOS 15.0, macOS 12.0, tvOS 15.0, *)

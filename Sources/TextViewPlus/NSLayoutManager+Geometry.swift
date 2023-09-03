@@ -1,12 +1,8 @@
-//
-//  NSLayoutManager+Geometry.swift
-//  TextViewPlus
-//
-//  Created by Matt Massicotte on 2020-05-28.
-//  Copyright © 2020 Chime Systems Inc. All rights reserved.
-//
-
-import Cocoa
+#if canImport(AppKit)
+import AppKit
+#elseif canImport(UIKit)
+import UIKit
+#endif
 
 public extension NSLayoutManager {
     func enclosingRect(forCharacterIndex index: Int, in container: NSTextContainer) -> NSRect {

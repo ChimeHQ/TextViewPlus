@@ -1,12 +1,4 @@
-//
-//  NSTextView+Workarounds.swift
-//  TextViewPlus
-//
-//  Created by Matt Massicotte on 2020-04-20.
-//  Copyright © 2020 ChimeHq. All rights reserved.
-//
-
-import Cocoa
+import AppKit
 
 extension NSTextView {
 

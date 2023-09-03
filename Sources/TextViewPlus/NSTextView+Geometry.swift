@@ -1,12 +1,4 @@
-//
-//  NSTextView+Geometry.swift
-//  TextViewPlus
-//
-//  Created by Matt Massicotte on 2019-02-22.
-//  Copyright © 2019 Chime Systems. All rights reserved.
-//
-
-import Cocoa
+import AppKit
 
 public extension NSTextView {
     func enumerateLineFragments(for range: NSRange, block: (NSRect, NSRange) -> Void) {

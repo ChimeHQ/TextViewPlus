@@ -14,7 +14,7 @@ dependencies: [
 targets: [
     .target(
         name: "UseCoreFunctionality",
-        dependencies: [.product(name: "TextViewPlus", package: "TextViewPlus")]
+        dependencies: ["TextViewPlus"]
     ),
     .target(
         name: "UseBaseTextView",

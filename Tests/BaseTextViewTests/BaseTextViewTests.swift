@@ -11,6 +11,12 @@ final class MockTextViewDelegate: NSObject, NSTextViewDelegate {
 
 @MainActor
 final class BaseTextViewTests: XCTestCase {
+	func testUsesTextKit2ByDefault() {
+		let view = BaseTextView()
+
+		XCTAssertNotNil(view.textLayoutManager)
+	}
+	
 	func testStockMissingDoCommandBy() {
 		let view = NSTextView()
 		let delegate = MockTextViewDelegate()

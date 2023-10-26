@@ -25,8 +25,9 @@ targets: [
 
 ## BaseTextView
 
-This is an `NSTextView` subclass that aims for an absolute minimal amount of changes. Things are allowed only if they are required for correct functionality. It is intended to be a drop-in replacement for `NSTextView`, and should maintain compatibilty with existing subclasses. Behaviors are appropriate for all types of text.
+This is an TextKit 2-only `NSTextView` subclass that aims for an absolute minimal amount of changes. Things are allowed only if they are required for correct functionality. It is intended to be a drop-in replacement for `NSTextView`, and should maintain compatibilty with existing subclasses. Behaviors are appropriate for all types of text.
 
+- Disables all support for TextKit 1
 - Workaround for `scrollRangeToVisible` bug (FB13100459)
 - Minimum `textContainerInset` enforcement to address more `scrollRangeToVisible` bugs
 - Additional routing to `NSTextViewDelegate.textView(_:, doCommandBy:) -> Bool`:  `paste`, `pasteAsRichText`, `pasteAsPlainText`

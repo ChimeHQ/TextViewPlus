@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Rearrange",
-        "repositoryURL": "https://github.com/ChimeHQ/Rearrange",
-        "state": {
-          "branch": null,
-          "revision": "320acefe0a330366fd957d0a3d650cfb930e1c78",
-          "version": "1.4.0"
-        }
+  "pins" : [
+    {
+      "identity" : "rearrange",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ChimeHQ/Rearrange",
+      "state" : {
+        "revision" : "0fb658e721c68495f6340c211cc6d4719e6b52d8",
+        "version" : "1.6.0"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }

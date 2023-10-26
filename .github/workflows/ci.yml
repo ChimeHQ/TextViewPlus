@@ -5,12 +5,13 @@ on:
     branches:
       - main
     paths-ignore:
-      - '*.md'
+      - 'README.md'
+      - 'CODE_OF_CONDUCT.md'
+      - '.editorconfig'
+      - '.spi.yml'
   pull_request:
     branches:
       - main
-    paths-ignore:
-      - '*.md'
 
 env:
   DEVELOPER_DIR: /Applications/Xcode_15.0.app/Contents/Developer
@@ -25,6 +26,8 @@ jobs:
           - "platform=macOS"
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - name: Install XCBeautify
+        run: brew install xcbeautify
       - name: Test platform ${{ matrix.destination }}
-        run: set -o pipefail && xcodebuild -scheme TextViewPlus-Package -destination "${{ matrix.destination }}" test | xcpretty
+        run: set -o pipefail && xcodebuild -scheme TextViewPlus-Package -destination "${{ matrix.destination }}" test | xcbeautify --renderer github-actions

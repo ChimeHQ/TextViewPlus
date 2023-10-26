@@ -14,7 +14,7 @@ let package = Package(
 		.library(name: "BaseTextView", targets: ["BaseTextView"]),
 	],
 	dependencies: [
-		.package(url: "https://github.com/ChimeHQ/Rearrange", from: "1.4.0"),
+		.package(url: "https://github.com/ChimeHQ/Rearrange", from: "1.6.0"),
 	],
 	targets: [
 		.target(name: "TextViewPlus", dependencies: ["Rearrange"], swiftSettings: settings),

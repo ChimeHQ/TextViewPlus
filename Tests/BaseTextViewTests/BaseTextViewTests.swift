@@ -15,8 +15,9 @@ final class BaseTextViewTests: XCTestCase {
 		let view = BaseTextView()
 
 		XCTAssertNotNil(view.textLayoutManager)
+		XCTAssertNotNil(view.textContentStorage)
 	}
-	
+
 	func testStockMissingDoCommandBy() {
 		let view = NSTextView()
 		let delegate = MockTextViewDelegate()

@@ -12,7 +12,7 @@ fileprivate let NSOldSelectedCharacterRanges = "NSOldSelectedCharacterRanges"
 open class BaseTextView: NSTextView {
 	public typealias OnEvent = (_ event: NSEvent, _ action: () -> Void) -> Void
 
-	private let logger = Logger(subsystem: "com.chimehq.SourceView", category: "BaseTextView")
+	private let logger = Logger(subsystem: "com.chimehq.TextViewPlus", category: "BaseTextView")
 	private var activeScrollValue: (NSRange, CGSize)?
 	private var lastSelectionValue = [NSValue]()
 

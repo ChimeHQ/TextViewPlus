@@ -35,6 +35,7 @@ public extension NSTextView {
         return attributedSubstring(forProposedRange: range, actualRange: actualRange)?.copy() as? NSAttributedString
     }
 
+    /// Undoable replacement of attributed string in specified range
     func replaceString(in range: NSRange, with attributedString: NSAttributedString) {
         if let manager = undoManager {
             let originalString = safeAttributedSubstring(forProposedRange: range, actualRange: nil)

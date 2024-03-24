@@ -50,4 +50,28 @@ public extension NSTextView {
 
         replaceCharacters(in: range, with: attributedString)
     }
+
+    func insertCharacters(_ attributedString: NSAttributedString, at location: Int) {
+        guard let storage = textStorage else {
+            fatalError("Unable to replace characters in a textview without a backing NSTextStorage")
+        }
+
+        storage.insert(attributedString, at: location)
+
+        didChangeText()
+    }
+
+    /// Undoable insertion of attributed string at specified location
+    func insertString(_ attributedString: NSAttributedString, at location: Int) {
+        if let manager = undoManager {
+            let inverseLength = attributedString.length
+            let inverseRange = NSRange(location: location, length: inverseLength)
+
+            manager.registerUndo(withTarget: self, handler: { (view) in
+                view.insertString(NSAttributedString(), at: location)
+            })
+        }
+
+        insertCharacters(attributedString, at: location)
+    }
 }

@@ -41,6 +41,44 @@ final class TextViewPlusTests: XCTestCase {
 
         XCTAssertEqual(textView.string, "abc")
     }
+
+    func testProgrammaticInsertionOfAttributedString() {
+        let textView = TestableTextView(string: "abc")
+
+        let attrString = NSAttributedString(string: "z")
+        textView.insertString(attrString, at: 1)
+
+        XCTAssertEqual(textView.string, "azbc")
+
+        textView.undoManager!.undo()
+
+        XCTAssertEqual(textView.string, "abc")
+    }
+
+    func testProgrammaticDeletionOfAttributedString() {
+        let textView = TestableTextView(string: "abc")
+
+        textView.deleteString(in: NSRange(location: 1, length: 1))
+
+        XCTAssertEqual(textView.string, "ac")
+
+        textView.undoManager!.undo()
+
+        XCTAssertEqual(textView.string, "abc")
+    }
+
+    func testProgrammaticDeletionOfAttributedStringWithFullRange() {
+        let textView = TestableTextView(string: "abc")
+
+        textView.deleteString(in: NSRange(location: 0, length: 3))
+
+        XCTAssert(textView.string.isEmpty)
+
+        textView.undoManager!.undo()
+
+        XCTAssertEqual(textView.string, "abc")
+    }
+
 }
 
 extension TextViewPlusTests {

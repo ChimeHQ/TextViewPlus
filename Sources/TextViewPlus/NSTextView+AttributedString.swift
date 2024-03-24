@@ -67,11 +67,35 @@ public extension NSTextView {
             let inverseLength = attributedString.length
             let inverseRange = NSRange(location: location, length: inverseLength)
 
-            manager.registerUndo(withTarget: self, handler: { (view) in
-                view.insertString(NSAttributedString(), at: location)
+            manager.registerUndo(withTarget: self, handler: { view in
+                view.deleteString(in: inverseRange)
             })
         }
 
         insertCharacters(attributedString, at: location)
+    }
+
+    func deleteCharacters(in range: NSRange) {
+        guard let storage = textStorage else {
+            fatalError("Unable to replace characters in a textview without a backing NSTextStorage")
+        }
+
+        storage.deleteCharacters(in: range)
+
+        didChangeText()
+    }
+
+    /// Undoable deletion of string in specified range
+    func deleteString(in range: NSRange) {
+        if let manager = undoManager {
+            let originalString = safeAttributedSubstring(forProposedRange: range, actualRange: nil)
+            let usableReplacementString = originalString ?? NSAttributedString()
+
+            manager.registerUndo(withTarget: self, handler: { view in
+                view.insertString(usableReplacementString, at: range.location)
+            })
+        }
+
+        deleteCharacters(in: range)
     }
 }
